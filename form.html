@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Make a Reservation</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
@@ -13,13 +13,21 @@
 <body>
 
   <div class="container">
-    <div class="jumbotron" style="text-align: center;">
-      <h1 >Hot Restaurant</h1>
-      <h4>Make your reservation</h4>
-      <hr>
-      <a href="/view.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View Tables</button></a>
-      <a href="/index.html"><button class="btn"><i class="fa fa-home"></i></button></a>
+    <div class="jumbotron">
+        <h1 class="text-center"><i class="fab fa-hotjar"></i>
+           Hot Restaurant
+        </h1>
+        <hr>
+        <h2 class="text-center">Make your reservation</h2>
+        <br>
+        <div class="text-center">
+            <a href="/tables"><button type="button" class="btn btn-lg btn-danger"><i class="fa fa-eye"></i>
+                View Tables
+            </button></a>
+            <a href="/"><button type="button" class="btn btn-lg btn-primary"> <i class="fas fa-home"></i></button></a>
+        </div>
     </div>
+
     <div class="row">
 
       <div class="col-12">
@@ -33,22 +41,22 @@
 
               <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name">
+                <input type="text" class="form-control" id="name" placeholder="username" name="name">
               </div>
 
               <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" class="form-control" id="phone">
+                <input type="text" class="form-control" id="phone" placeholder="phone" name="phone">
               </div>
 
               <div class="form-group">
                 <label for="email">Email</label>
-                <input type="text" class="form-control" id="email">
+                <input type="text" class="form-control" id="email" placeholder="email" name="email">
               </div>
 
               <div class="form-group">
                 <label for="id">Unique Id</label>
-                <input type="text" class="form-control" id="id">
+                <input type="text" class="form-control" id="uniqueId" placeholder="uniqueId" name="uniqueId">
               </div>
 
             </form>
@@ -63,6 +71,22 @@
     </div>
   </div>
 
+  <script type="text/javascript">
+		$(".submit").on("click", function(event){
+			event.preventDefault();
+			var newReservation = {        
+				name: $("#customerName").val().trim(),
+				phone: $("#phone").val().trim(),
+				email: $("#email").val().trim(),
+                uniqueID: $("#uniqueID").val().trim()} 
+                
+            $.post("/form", newReservation)
+            .then(function(data) {
+            console.log("form.html", data);
+            alert("You made a reservation!");
+        });
+		})
+	</script>
 
 </body>
 </html>

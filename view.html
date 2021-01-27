@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <link rel="stylesheet"
-    href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <title>View Tables</title>
@@ -14,33 +13,33 @@
 <body>
     <div class="container">
 		<div class="jumbotron">
-			<h1 class="text-center"><i class="fas fa-fire"></i>
+			<h1 class="text-center"><i class="fab fa-hotjar"></i>
                Hot Restaurant
             </h1>
 			<hr>
 			<h2 class="text-center">Current Reservations and Waiting List</h2>
 			<br>
 			<div class="text-center">
-				<a href="./form.html"><button type="button" class="btn btn-lg btn-danger"><i class="far fa-clipboard"></i>
+				<a href="/reserve"><button type="button" class="btn btn-lg btn-danger"><i class="far fa-clipboard"></i>
                     Make a Reservation
                 </button></a>
-				<a href="./index.html"><button type="button" class="btn btn-lg btn-primary"> <i class="fas fa-home"></i></button></a>
+				<a href="/"><button type="button" class="btn btn-lg btn-primary"> <i class="fas fa-home"></i></button></a>
 			</div>
         </div>
         
         <div class="row">
 			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">Current Reservations</h4>
+				<div class="card">
+					<div class="card-header">
+						<h4>Current Reservations</h4>
 					</div>
-					<div class="panel-body" id="#">Placeholder</div>
+					<div class="card-body" id="#">Placeholder</div>
                 </div>
-				<div class="panel panel-default">
-					<div class="panel-heading">
-						<h4 class="panel-title">Waiting List</h4>
+				<div class="card">
+					<div class="card-header">
+						<h4>Waiting List</h4>
 					</div>
-                    <div class="panel-body" id="#">Placeolder</div>
+                    <div class="card-body" id="#">Placeolder</div>
                     
 				</div>
 			</div>
@@ -53,6 +52,35 @@
 	    </footer>
 
 	</div>
+	<script type="text/javascript">
+	// create AJAX call //
+	// .then function for table data //
+	// for loop for list of customers //
+	for (var i=0; i<tableData.length;i++){
+		var tableList = $("#tableList");
+		var listTable = $("#listTable");
 
+		listTable.append(`
+			$("<h>").text("tableNumber", i+1); 
+			$("<h>").text("name: " + tableData[i].customerName);	
+			$("<h>").text("phone: " + tableData[i].phone);
+			$("<h>").text("email: " + tableData[i].email);
+			$("<h>").text("uniqueID: " + tableData[i].uniqueID)
+			`			
+		)
+	}
+	// append the list //
+		$(document).ready(function() {
+		  $.get("/api/tables", function(data) {
+			
+			}
+		});
+
+	// create AJAX call //
+	// .then function for table data //
+	// for loop for waitlist of customers //
+	// append the waitlist //
+	
+	  </script>
 </body>
 </html>
