@@ -7,8 +7,7 @@ var path = require ("path")
 var app = express();
 var PORT = 3000;
 
-// Require/import the HTTP module
-var http = require("http");
+
 
 
 
