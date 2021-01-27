@@ -1,0 +1,23 @@
+{
+  "name": "exit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "npm install",
+  "scripts": {
+    "test": "npm i express",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WarriorofZarona/hotrestaurant.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WarriorofZarona/hotrestaurant/issues"
+  },
+  "homepage": "https://github.com/WarriorofZarona/hotrestaurant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
